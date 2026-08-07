@@ -1,0 +1,7 @@
+[Unit]
+Description=Duunivahti – tarkista uudet työpaikkailmoitukset Gmailista
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/keitsi/skriptit/duunivahti.sh

@@ -1,0 +1,9 @@
+[Unit]
+Description=Aja duunivahti päivittäin klo 08:00 Helsingin aikaa
+
+[Timer]
+OnCalendar=*-*-* 08:00:00 Europe/Helsinki
+Persistent=true
+
+[Install]
+WantedBy=timers.target

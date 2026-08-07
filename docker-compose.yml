@@ -1,0 +1,17 @@
+services:
+  ntfy:
+    image: binwiederhier/ntfy
+    command: serve
+    environment:
+      - NTFY_BASE_URL=https://brainbin.tailf1fe0b.ts.net
+      - NTFY_UPSTREAM_BASE_URL=https://ntfy.sh
+    ports:
+      - "127.0.0.1:4444:80"
+    volumes:
+      - ntfy-data:/var/cache/ntfy
+      - ntfy-etc:/etc/ntfy
+    restart: unless-stopped
+
+volumes:
+  ntfy-data:
+  ntfy-etc:
