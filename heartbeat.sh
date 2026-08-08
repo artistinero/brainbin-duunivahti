@@ -7,6 +7,7 @@ NTFY=$(docker inspect --format='{{.State.Status}}' ntfy-ntfy-1 2>/dev/null || ec
 DUUNIVAHTI=$(TZ=Europe/Helsinki date -d "$(systemctl --user show duunivahti.service --property=ExecMainStartTimestamp --value)" "+%Y-%m-%d %H:%M" 2>/dev/null)
 CPU_LAMPO=$(sensors 2>/dev/null | awk '/CPU Temperature:/{print $3}')
 MB_LAMPO=$(sensors 2>/dev/null | awk '/MB Temperature:/{print $3}')
+BACKUP=$(cat ~/.last-backup-pcloud 2>/dev/null || echo "ei tiedossa")
 
 VIESTI="Brainbin toimii ✓
 Uptime: $UPTIME
@@ -14,7 +15,8 @@ Levy: $LEVY
 Muisti: $MUISTI
 CPU: $CPU_LAMPO  MB: $MB_LAMPO
 ntfy: $NTFY
-Duunivahti viimeksi: $DUUNIVAHTI"
+Duunivahti viimeksi: $DUUNIVAHTI
+Backup pCloudiin: $BACKUP"
 
 curl -s -d "$VIESTI" \
     -H "Title: Brainbin-heartbeat" \
