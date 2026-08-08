@@ -1,0 +1,6 @@
+[Unit]
+Description=Brainbin-heartbeat – päivittäinen tilayhteenveto ntfy:lle
+
+[Service]
+Type=oneshot
+ExecStart=/home/keitsi/skriptit/heartbeat.sh

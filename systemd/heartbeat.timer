@@ -1,0 +1,9 @@
+[Unit]
+Description=Aja heartbeat päivittäin klo 12:00 Helsingin aikaa
+
+[Timer]
+OnCalendar=*-*-* 12:00:00 Europe/Helsinki
+Persistent=true
+
+[Install]
+WantedBy=timers.target
