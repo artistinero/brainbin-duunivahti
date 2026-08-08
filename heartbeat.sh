@@ -4,7 +4,7 @@ UPTIME=$(uptime -p | sed 's/up //')
 LEVY=$(df -h / | awk 'NR==2{print $3"/"$2" ("$5")"}')
 MUISTI=$(free -h | awk '/^Mem:/{print $3"/"$2}')
 NTFY=$(docker inspect --format='{{.State.Status}}' ntfy-ntfy-1 2>/dev/null || echo "ei käynnissä")
-DUUNIVAHTI=$(systemctl --user show duunivahti.service --property=ExecMainStartTimestamp --value 2>/dev/null | sed 's/ [A-Z]*$//')
+DUUNIVAHTI=$(TZ=Europe/Helsinki date -d "$(systemctl --user show duunivahti.service --property=ExecMainStartTimestamp --value)" "+%Y-%m-%d %H:%M" 2>/dev/null)
 CPU_LAMPO=$(sensors 2>/dev/null | awk '/CPU Temperature:/{print $3}')
 MB_LAMPO=$(sensors 2>/dev/null | awk '/MB Temperature:/{print $3}')
 
