@@ -5,11 +5,14 @@ LEVY=$(df -h / | awk 'NR==2{print $3"/"$2" ("$5")"}')
 MUISTI=$(free -h | awk '/^Mem:/{print $3"/"$2}')
 NTFY=$(docker inspect --format='{{.State.Status}}' ntfy-ntfy-1 2>/dev/null || echo "ei käynnissä")
 DUUNIVAHTI=$(systemctl --user show duunivahti.service --property=ExecMainStartTimestamp --value 2>/dev/null | sed 's/ [A-Z]*$//')
+CPU_LAMPO=$(sensors 2>/dev/null | awk '/CPU Temperature:/{print $3}')
+MB_LAMPO=$(sensors 2>/dev/null | awk '/MB Temperature:/{print $3}')
 
 VIESTI="Brainbin toimii ✓
 Uptime: $UPTIME
 Levy: $LEVY
 Muisti: $MUISTI
+CPU: $CPU_LAMPO  MB: $MB_LAMPO
 ntfy: $NTFY
 Duunivahti viimeksi: $DUUNIVAHTI"
 
