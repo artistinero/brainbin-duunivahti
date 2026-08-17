@@ -21,4 +21,4 @@ Backup pCloudiin: $BACKUP"
 curl -s -d "$VIESTI" \
     -H "Title: Brainbin-heartbeat" \
     -H "Priority: min" \
-    https://brainbin.tailf1fe0b.ts.net/duunivahti
+    https://brainbin.tailf1fe0b.ts.net/brainbin-heartbeat
