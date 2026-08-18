@@ -1,0 +1,7 @@
+[Unit]
+Description=Duunivahti-watcher – tarkista onko kirjautuminen palautunut
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/keitsi/skriptit/duunivahti-tarkista-kirjautuminen.sh

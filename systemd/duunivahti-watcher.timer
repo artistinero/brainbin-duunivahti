@@ -1,0 +1,10 @@
+[Unit]
+Description=Duunivahti-watcher – tarkista kirjautumisen palautuminen 20 min välein
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=20min
+Persistent=true
+
+[Install]
+WantedBy=timers.target
